@@ -58,12 +58,8 @@ void dichotomy(double lower, double upper) {
 
 int main() {
     cout << "Variant 4.\nFunction: cos(x)*th(x)\nInterval: [" << LOWER_EDGE << " " << UPPER_EDGE << "]\n";
-    cout << "Part 1. Finding minimum of the function with dichotomy method\n";
 
-    {
-        const double DELTA = .01;
-        beautifulPrintingForPart1(LOWER_EDGE, UPPER_EDGE);
-    }
+    dichotomy(LOWER_EDGE, UPPER_EDGE);  // Part 1. Dichotomy
 
     return 0;
 }
