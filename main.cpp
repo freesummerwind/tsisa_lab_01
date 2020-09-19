@@ -10,11 +10,11 @@ double myFunctionFromTask(double x) {
 }
 
 void beautifulPrintingForPart1(double ak, double bk) {
-    cout << '|' << std::setw(11) << ak
-        << '|' << std::setw(11) << bk
-        << '|' << std::setw(11) << bk - ak
-        << '|' << std::setw(11) << myFunctionFromTask(ak)
-        << '|' << std::setw(11) << myFunctionFromTask(bk) << '|';
+    cout << '|' << std::setw(13) << ak << ' '
+        << '|' << std::setw(13) << bk << ' '
+        << '|' << std::setw(13) << bk - ak << ' '
+        << '|' << std::setw(13) << myFunctionFromTask(ak) << ' '
+        << '|' << std::setw(13) << myFunctionFromTask(bk) << ' ' << '|' << '\n';
 }
 
 const double LOWER_EDGE = -2.;
