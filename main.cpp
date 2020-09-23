@@ -36,7 +36,8 @@ void dichotomy(double lower, double upper,
          << '|' << std::string(5, ' ') << "(l)" << std::string(6, ' ')
          << '|' << std::string(14, ' ')
          << '|' << std::string(14, ' ') << '|' << '\n'
-         << std::string(76, '_') << '\n';
+         << std::string(76, '-') << '\n';
+
     while (upper - lower > epsilon) {
         beautifulPrintingForPart1(lower, upper);
         double x1 = lower + (upper - lower) / 2 - delta,
@@ -49,7 +50,7 @@ void dichotomy(double lower, double upper,
          << '|' << std::setw(13) << upper << ' '
          << '|' << std::setw(13) << upper - lower << ' '
          << '|' << std::string(9, ' ') << "l < epsilon" << std::string(9, ' ') << '|' << '\n'
-         << std::string(76, '_') << '\n';
+         << std::string(76, '-') << '\n';
 }
 
 const double LOWER_EDGE = -2.;
