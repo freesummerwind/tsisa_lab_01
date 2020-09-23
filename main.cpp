@@ -17,12 +17,9 @@ void beautifulPrintingForPart1(double ak, double bk) {
         << '|' << std::setw(13) << myFunctionFromTask(bk) << ' ' << '|' << '\n';
 }
 
-const double LOWER_EDGE = -2.;
-const double UPPER_EDGE = 0.;
-const double EPSILON = .1;
-
-void dichotomy(double lower, double upper) {
-    cout << "Part 1. Finding minimum of the function with dichotomy method\n\n"
+void dichotomy(double lower, double upper,
+        const double epsilon, const double delta) {
+    cout << "\nPart 1. Finding minimum of the function with dichotomy method\n"
          << std::string(76, '_') << '\n'
          << '|' << std::string(3, ' ') << "Start of" << std::string(3, ' ')
          << '|' << std::string(4, ' ') << "End of" << std::string(4, ' ')
@@ -40,11 +37,10 @@ void dichotomy(double lower, double upper) {
          << '|' << std::string(14, ' ')
          << '|' << std::string(14, ' ') << '|' << '\n'
          << std::string(76, '_') << '\n';
-    const double DELTA = .01;
-    while(upper - lower > EPSILON) {
+    while (upper - lower > epsilon) {
         beautifulPrintingForPart1(lower, upper);
-        double x1 = lower + (upper - lower) / 2 - DELTA,
-                x2 = lower + (upper - lower) / 2 + DELTA;
+        double x1 = lower + (upper - lower) / 2 - delta,
+                x2 = lower + (upper - lower) / 2 + delta;
         myFunctionFromTask(x1) < myFunctionFromTask(x2)
         ? upper = x1
         : lower = x2;
@@ -56,10 +52,14 @@ void dichotomy(double lower, double upper) {
          << std::string(76, '_') << '\n';
 }
 
+const double LOWER_EDGE = -2.;
+const double UPPER_EDGE = 0.;
+const double EPSILON = .1;
+
 int main() {
     cout << "Variant 4.\nFunction: cos(x)*th(x)\nInterval: [" << LOWER_EDGE << " " << UPPER_EDGE << "]\n";
 
-    dichotomy(LOWER_EDGE, UPPER_EDGE);  // Part 1. Dichotomy
+    dichotomy(LOWER_EDGE, UPPER_EDGE, EPSILON, .01);  // Part 1. Dichotomy
 
     return 0;
 }
