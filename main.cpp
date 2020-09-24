@@ -95,6 +95,7 @@ int main() {
     cout << "Variant 4.\nFunction: cos(x)*th(x)\nInterval: [" << LOWER_EDGE << " " << UPPER_EDGE << "]\n";
 
     dichotomy(LOWER_EDGE, UPPER_EDGE, EPSILON, .01);  // Part 1. Dichotomy
+    optimalPassiveFinding(LOWER_EDGE, UPPER_EDGE, EPSILON);  // Part 2. Optimal passive finding
 
     return 0;
 }
