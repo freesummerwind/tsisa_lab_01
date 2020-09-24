@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iomanip>
 #include <iostream>
+#include <sstream>
 
 using std::cin;
 using std::cout;
@@ -54,6 +55,36 @@ void dichotomy(double lower, double upper,
          << "Minimum is reached at the point x = " << std::setprecision(3)
             << lower + (upper - lower) / 2 << " +- " << std::setprecision(2)
             << (upper - lower) / 2 << '\n';
+}
+
+void optimalPassiveFinding(const double lower, const double upper,
+                           const double epsilon) {
+    cout << "\nPart 2. Finding minimum of the function with optimal passive finding method\n"
+        << std::string(27, '_') << '\n'
+        << '|' << "Number of " << '|' << "  Value of x  " << '|' << '\n'
+        << '|' << "points (N)" << '|' << "in the minimum" << '|' << '\n'
+        << std::string(27, '-') << '\n';
+
+    size_t N = 1;
+    double finding;
+    while ((upper - lower) / (N == 0 ? N : N-1) > epsilon) {
+        double x = upper;
+        finding = x;
+        for (size_t i = 0; i < N; ++i) {
+            x += (upper - lower) / N;
+            if (myFunctionFromTask(x) > myFunctionFromTask(finding))
+                finding = x;
+        }
+
+        std::ostringstream os;
+        os << std::setw(5) << std::setprecision(3) << finding << " +- "
+            << std::setprecision(3) << (upper - lower) / N;
+
+        cout << '|' << std::setw(6) << N << std::setw(4) << " |"
+            << std::left << std::setw(15) << os.str() << "|\n" << std::right;
+        ++N;
+    }
+    cout << std::string(27, '-') << '\n';
 }
 
 const double LOWER_EDGE = -2.;
