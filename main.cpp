@@ -50,7 +50,10 @@ void dichotomy(double lower, double upper,
          << '|' << std::setw(13) << upper << ' '
          << '|' << std::setw(13) << upper - lower << ' '
          << '|' << std::string(9, ' ') << "l < epsilon" << std::string(9, ' ') << '|' << '\n'
-         << std::string(76, '-') << '\n';
+         << std::string(76, '-') << '\n'
+         << "Minimum is reached at the point x = " << std::setprecision(3)
+            << lower + (upper - lower) / 2 << " +- " << std::setprecision(2)
+            << (upper - lower) / 2 << '\n';
 }
 
 const double LOWER_EDGE = -2.;
