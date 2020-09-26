@@ -66,18 +66,18 @@ void optimalPassiveFinding(const double lower, const double upper,
 
     size_t N = 1;
     double finding;
-    while ((upper - lower) / (N == 0 ? N : N-1) > epsilon) {
+    while ((upper - lower) / N > epsilon) {
         double x = upper;
         finding = x;
         for (size_t i = 0; i < N; ++i) {
-            x += (upper - lower) / N;
+            x += (upper - lower) / (N + 1);
             if (myFunctionFromTask(x) > myFunctionFromTask(finding))
                 finding = x;
         }
 
         std::ostringstream os;
         os << std::setw(5) << std::setprecision(3) << finding << " +- "
-            << std::setprecision(3) << (upper - lower) / N;
+            << std::setprecision(3) << (upper - lower) / (N + 1);
 
         cout << '|' << std::setw(6) << N << std::setw(4) << " |"
             << std::left << std::setw(15) << os.str() << "|\n" << std::right;
