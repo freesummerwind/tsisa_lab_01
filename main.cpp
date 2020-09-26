@@ -5,11 +5,11 @@
 using std::cin;
 using std::cout;
 
-double myFunctionFromTask(double x) {
+double myFunctionFromTask(const double x) {
     return std::cos(x) * std::tanh(x);
 }
 
-void beautifulPrintingForPart1(double ak, double bk) {
+void beautifulPrintingForPart1(const double ak, const double bk) {
     cout << '|' << std::setw(13) << ak << ' '
         << '|' << std::setw(13) << bk << ' '
         << '|' << std::setw(13) << bk - ak << ' '
